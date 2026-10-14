@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Listener</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    
+    <!-- Header -->
+    <div class="header">
+      <div class="title-group">
+        <h1 class="title">Web Listener</h1>
+        <p class="subtitle">Dhaka Marathon Registration Alert</p>
+      </div>
+      <div class="toggle-wrap">
+        <label class="switch">
+          <input type="checkbox" id="enabled" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Active Alarm Alert Box (Shown when ringing) -->
+    <div class="alarm-box hidden" id="alarm-box">
+      <div class="alarm-msg">🚨 REGISTRATION OPEN! Text is missing!</div>
+      <button type="button" class="btn btn-stop-alarm" id="btn-stop-alarm">🔇 STOP LOUD SOUND</button>
+    </div>
+
+    <!-- Live Status Pill -->
+    <div class="status-banner" id="status-banner">
+      <span class="status-dot" id="status-dot"></span>
+      <div class="status-col">
+        <span class="status-text" id="status-text">Monitoring every 1 min 30 sec</span>
+        <span class="countdown-text" id="countdown-text">Next check: 01 min 30 sec</span>
+      </div>
+    </div>
+
+    <!-- Form Inputs -->
+    <div class="form">
+
+      <div class="field">
+        <label for="url">Website URL</label>
+        <input type="url" id="url" value="https://www.dhakainternationalmarathon.org" required>
+      </div>
+
+      <div class="row-2">
+        <div class="field">
+          <label>Check Every (min : sec)</label>
+          <div class="time-input-group">
+            <div class="time-col">
+              <input type="number" id="intervalMin" min="0" max="1440" value="1" placeholder="min" required>
+              <span class="unit-label">min</span>
+            </div>
+            <span class="time-colon">:</span>
+            <div class="time-col">
+              <input type="number" id="intervalSec" min="0" max="59" value="30" placeholder="sec" required>
+              <span class="unit-label">sec</span>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label for="nthChild">N-th Child</label>
+          <input type="number" id="nthChild" min="1" max="50" value="2" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="className">Class Name (or Tag)</label>
+        <input type="text" id="className" value="_card_7xci0_108" placeholder="e.g. _card_7xci0_108 or article" required>
+      </div>
+
+      <div class="field">
+        <label for="seekText">Text to Seek (Silent when present)</label>
+        <input type="text" id="seekText" value="comming soon" placeholder="comming soon" required>
+      </div>
+
+      <div class="rule-hint">
+        ℹ️ <strong>Rule:</strong> If child #<span id="hint-child">2</span> of <code><span id="hint-class">_card_7xci0_108</span></code> contains "<span id="hint-text">comming soon</span>", it stays <strong>SILENT</strong>. If not found, it <strong>PLAYS LOUD AUDIO</strong>!
+      </div>
+
+      <!-- Action Buttons -->
+      <button type="button" class="btn btn-save" id="btn-save">Save & Start Monitoring</button>
+
+      <div class="row-btns">
+        <button type="button" class="btn btn-secondary" id="btn-check-now">Check Now</button>
+        <button type="button" class="btn btn-secondary" id="btn-test-sound">Test Sound</button>
+      </div>
+
+    </div>
+
+    <!-- Last Check Result -->
+    <div class="result-box">
+      <div class="result-label">Last Check:</div>
+      <div class="result-value" id="result-value">Waiting for check...</div>
+    </div>
+
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

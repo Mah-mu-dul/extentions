@@ -1,0 +1,13 @@
+{
+    "manifest_version": 3,
+    "name": "Hide Plyr Logo",
+    "version": "1.0",
+    "description": "Continuously hides the plyr logo.",
+    "permissions": ["activeTab"],
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"]
+      }
+    ]
+  }

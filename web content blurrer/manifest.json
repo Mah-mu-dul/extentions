@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Blur Web Content",
+  "version": "1.0",
+  "description": "Blur selected text or images on any webpage",
+  "permissions": ["contextMenus", "activeTab", "scripting"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "action": {
+    "default_icon": {
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  }
+}

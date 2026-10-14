@@ -1,0 +1,24 @@
+.jw-speed-slider-container {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(30, 30, 30, 0.7);
+    padding: 8px 12px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .jw-speed-slider {
+    width: 120px;
+    margin-right: 10px;
+  }
+  
+  .jw-speed-label {
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    min-width: 40px;
+    text-align: right;
+  }
